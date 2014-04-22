@@ -40,6 +40,8 @@ Lita.configure do |config|
 end
 ```
 
+working example on heroku: https://github.com/fukayatsu/kamabata-fkbot
+
 ## Contributing
 
 1. Fork it ( http://github.com/fukayatsu/lita-idobata/fork )
