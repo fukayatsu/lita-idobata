@@ -25,7 +25,7 @@ source "https://rubygems.org"
 
 gem 'lita', '~> 3.1.0'
 gem "lita-idobata",  github: 'fukayatsu/lita-idobata'
-gem "pusher-client", github: 'fukayatsu/pusher-ruby-client', branch: 'custom-presence-auth-method'
+gem "pusher-client", github: 'pusher/pusher-ruby-client'
 ...
 ```
 
