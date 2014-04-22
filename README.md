@@ -24,8 +24,8 @@ Or install it yourself as:
 source "https://rubygems.org"
 
 gem 'lita', '~> 3.1.0'
-gem "lita-idobata",  github: 'fukayatsu/lita-idobata'
-gem "pusher-client", github: 'pusher/pusher-ruby-client'
+gem "lita-idobata"
+gem "pusher-client", github: 'pusher/pusher-ruby-client' # v0.5.1 is not released yet
 ...
 ```
 
