@@ -30,7 +30,7 @@ module Lita
 
           options = {
             encrypted: !!@idobata_url.match(/^https/),
-            presence_auth_method: presence_auth_method
+            auth_method: auth_method
           }
           socket = PusherClient::Socket.new(@pusher_key, options)
           socket.connect(true)
@@ -65,7 +65,7 @@ module Lita
 
       private
 
-        def presence_auth_method
+        def auth_method
           -> (socket_id, channel) {
             response = http_client.post "/pusher/auth", { channel_name: channel.name, socket_id: socket_id }
             json = JSON.parse(response.body)
