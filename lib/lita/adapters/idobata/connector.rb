@@ -41,12 +41,12 @@ module Lita
 
           socket.bind('message_created') do |data|
             message = JSON.parse(data)["message"]
-            break if message["sender_id"] == @bot['id']
-
-            user    = User.new(message["sender_id"], name: message["sender_name"])
-            source  = Source.new(user: user, room: message["room_id"])
-            message = Message.new(robot, message["body_plain"], source)
-            robot.receive(message)
+            if message["sender_id"] != @bot['id']
+              user    = User.new(message["sender_id"], name: message["sender_name"])
+              source  = Source.new(user: user, room: message["room_id"])
+              message = Message.new(robot, message["body_plain"], source)
+              robot.receive(message)
+            end
           end
         end
 
