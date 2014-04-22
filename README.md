@@ -1,4 +1,4 @@
-# Lita::Idobata
+# lita-idobata
 
 **lita-idobata** is an adapter for [Lita](https://github.com/jimmycuadra/lita) that allows you to use the robot with [Idobata](https://idobata.io).
 
@@ -18,7 +18,27 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+# Gemfile of your lita
+
+source "https://rubygems.org"
+
+gem 'lita', '~> 3.1.0'
+gem "lita-idobata",  github: 'fukayatsu/lita-idobata'
+gem "pusher-client", github: 'fukayatsu/pusher-ruby-client', branch: 'custom-presence-auth-method'
+...
+```
+
+```ruby
+# lita_config.rb
+
+Lita.configure do |config|
+  config.robot.name = "your-bot-name"
+  config.robot.log_level = :info
+  config.robot.adapter = :idobata
+  config.adapter.api_token = '123456abcd***'
+end
+```
 
 ## Contributing
 
