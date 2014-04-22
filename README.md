@@ -1,6 +1,6 @@
 # Lita::Idobata
 
-TODO: Write a gem description
+**lita-idobata** is an adapter for [Lita](https://github.com/jimmycuadra/lita) that allows you to use the robot with [Idobata](https://idobata.io).
 
 ## Installation
 
@@ -22,7 +22,7 @@ TODO: Write usage instructions here
 
 ## Contributing
 
-1. Fork it ( http://github.com/<my-github-username>/lita-idobata/fork )
+1. Fork it ( http://github.com/fukayatsu/lita-idobata/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
