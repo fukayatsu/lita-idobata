@@ -35,7 +35,7 @@ module Lita
           socket = PusherClient::Socket.new(@pusher_key, options)
           socket.connect(true)
           socket.bind('pusher:connection_established') do |data|
-            socket_id = JSON.parse(data)['socket_id'] # HACK
+            socket_id = JSON.parse(data)['socket_id']
             socket.subscribe(channel_name, socket_id)
           end
 
