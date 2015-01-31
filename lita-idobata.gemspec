@@ -19,13 +19,13 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_runtime_dependency "lita", ">= 2.5"
+  spec.add_runtime_dependency "lita", ">= 4.0"
   spec.add_runtime_dependency 'faraday', '~> 0.9.0'
   spec.add_runtime_dependency 'pusher-client', '~> 0.6.0'
 
-  spec.add_development_dependency "bundler", "~> 1.5"
+  spec.add_development_dependency "bundler"
   spec.add_development_dependency "rake"
-  spec.add_development_dependency "rspec", ">= 3.0.0.beta2"
+  spec.add_development_dependency "rspec", ">= 3.1.0"
   spec.add_development_dependency "simplecov"
   spec.add_development_dependency "coveralls"
 end
