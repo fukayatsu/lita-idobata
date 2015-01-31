@@ -4,15 +4,18 @@ require 'lita/adapters/idobata/connector'
 module Lita
   module Adapters
     class Idobata < Adapter
-      require_configs :api_token
+      config :api_token
+      config :pusher_key,  default: '44ffe67af1c7035be764'
+      config :idobata_url, default: 'https://idobata.io'
+      config :debug,       default: false
 
       def initialize(robot)
         super
         @connector = Connector.new(robot,
-          api_token:   config.api_token,
-          pusher_key:  pusher_key,
-          idobata_url: idobata_url,
-          debug:       debug,
+          api_token:   adapter_config.api_token,
+          pusher_key:  adapter_config.pusher_key,
+          idobata_url: adapter_config.idobata_url,
+          debug:       adapter_config.debug,
         )
       end
       attr_reader :connector
@@ -45,23 +48,10 @@ module Lita
 
     private
 
-      def config
-        Lita.config.adapter
-      end
-
-      def debug
-        config.debug || false
-      end
-
-      def pusher_key
-        config.pusher_key || '44ffe67af1c7035be764'
-      end
-
-      def idobata_url
-        config.idobata_url || 'https://idobata.io'
+      def adapter_config
+        robot.config.adapters.idobata
       end
     end
-
     Lita.register_adapter(:idobata, Idobata)
   end
 end

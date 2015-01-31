@@ -2,6 +2,9 @@
 
 **lita-idobata** is an adapter for [Lita](https://github.com/jimmycuadra/lita) that allows you to use the robot with [Idobata](https://idobata.io).
 
+**v0.1.x** for lita >= 4.0
+**v0.0.x** for ltia >= 2.5
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -23,7 +26,7 @@ Or install it yourself as:
 
 source "https://rubygems.org"
 
-gem 'lita', '~> 3.1.0'
+gem 'lita', '~> 4.2.0'
 gem "lita-idobata"
 gem "pusher-client"
 ...
@@ -34,9 +37,9 @@ gem "pusher-client"
 
 Lita.configure do |config|
   config.robot.name = "your-bot-name"
-  config.robot.log_level = :info
   config.robot.adapter = :idobata
-  config.adapter.api_token = '123456abcd***'
+  config.adapters.idobata.api_token = '123456abcd***'
+  ...
 end
 ```
 
