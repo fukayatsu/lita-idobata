@@ -2,8 +2,10 @@
 
 **lita-idobata** is an adapter for [Lita](https://github.com/jimmycuadra/lita) that allows you to use the robot with [Idobata](https://idobata.io).
 
-**v0.1.x** for lita >= 4.0
-**v0.0.x** for ltia >= 2.5
+- **v0.2.x** for lita >= 4.0 and new idobata
+  - http://blog.idobata.io/post/115181024997
+- **v0.1.x** for lita >= 4.0
+- **v0.0.x** for ltia >= 2.5
 
 ## Installation
 
