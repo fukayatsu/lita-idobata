@@ -39,7 +39,7 @@ module Lita
             socket.subscribe(channel_name, socket_id)
           end
 
-          socket.bind('message_created') do |data|
+          socket.bind('message:created') do |data|
             message = JSON.parse(data)["message"]
             if message["sender_id"] != @bot['id']
               user    = User.new(message["sender_id"], name: message["sender_name"])
