@@ -48,6 +48,11 @@ module Lita
               robot.receive(message)
             end
           end
+
+          socket.bind('disconnected') do
+            sleep 5
+            socket.connect(true)
+          end
         end
 
         def message(target, strings)
