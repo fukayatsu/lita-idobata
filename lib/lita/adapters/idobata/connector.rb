@@ -54,6 +54,10 @@ module Lita
             Lita.logger.info("disconnected. trying reconnect")
             connect
           end
+
+          socket.bind('pusher:error') do |data|
+            Lita.logger.info("pusher:error #{data.to_s}")
+          end
         end
 
         def message(target, strings)
