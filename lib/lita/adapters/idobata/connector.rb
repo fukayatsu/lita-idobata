@@ -44,7 +44,8 @@ module Lita
             if message["sender_id"] != @bot['id']
               user    = User.new(message["sender_id"], name: message["sender_name"])
               source  = Source.new(user: user, room: message["room_id"])
-              message = Message.new(robot, message["body_plain"], source)
+              # `message["body_plain"]` is nil on image upload
+              message = Message.new(robot, message["body_plain"].to_s, source)
               robot.receive(message)
             end
           end
