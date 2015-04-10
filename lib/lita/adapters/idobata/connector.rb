@@ -51,7 +51,8 @@ module Lita
 
           socket.bind('disconnected') do
             sleep 5
-            socket.connect(true)
+            Lita.logger.info("disconnected. trying reconnect")
+            connect
           end
         end
 
