@@ -55,8 +55,8 @@ module Lita
             connect
           end
 
-          socket.bind('pusher:error') do |data|
-            Lita.logger.info("pusher:error #{data.to_s}")
+          socket.bind('pusher:error') do |error|
+            Lita.logger.info("pusher:error #{error.backtrace.join("\n")}")
           end
         end
 
