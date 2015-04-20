@@ -42,7 +42,7 @@ module Lita
           socket.bind('message:created') do |data|
             message = JSON.parse(data)["message"]
             if message["sender_id"] != @bot['id']
-              user    = User.new(message["sender_id"], name: message["sender_name"])
+              user    = find_user(*message.values_at('sender_id', 'sender_name', 'sender_type'))
               source  = Source.new(user: user, room: message["room_id"])
               # `message["body_plain"]` is nil on image upload
               message = Message.new(robot, message["body_plain"].to_s, source)
@@ -70,6 +70,13 @@ module Lita
         end
 
       private
+
+        def find_user(id, name, type)
+          # hook has no personality, it's only a machine
+          return User.new(id, name: name) if type == 'HookEndpoint'
+
+          User.find_by_id(id) || User.create(id, name: name)
+        end
 
         def auth_method
           -> (socket_id, channel) {
