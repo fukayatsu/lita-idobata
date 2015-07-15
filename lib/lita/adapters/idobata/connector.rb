@@ -49,9 +49,10 @@ module Lita
             end
           end
 
-          socket.bind('disconnected') do
+          socket.bind('pusher:error') do |data|
+            socket.disconnect
             sleep 5
-            socket.connect(true)
+            connect
           end
         end
 
