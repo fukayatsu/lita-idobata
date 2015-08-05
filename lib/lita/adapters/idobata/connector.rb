@@ -50,9 +50,13 @@ module Lita
           end
 
           socket.bind('pusher:error') do |data|
+            Lita.logger.info("[restarting] start by error : #{data.inspect}")
+            sleep 5
             socket.disconnect
+            Lita.logger.info("[restarting] disconnected")
             sleep 5
             connect
+            Lita.logger.info("[restarting] done")
           end
         end
 
