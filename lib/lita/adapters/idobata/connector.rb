@@ -5,6 +5,17 @@ require 'pusher-client'
 require 'faraday'
 require 'json'
 
+class PusherClient::Socket
+  def parser(data)
+    return data if data.is_a? Hash
+    return JSON.parse(data)
+  rescue => err
+    logger.warn(err)
+    # return data
+    return {}
+  end
+end
+
 module Lita
   module Adapters
     class Idobata < Adapter
